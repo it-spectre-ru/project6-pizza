@@ -9,10 +9,11 @@ import NotFound from './pages/NotFound';
 import './scss/app.scss';
 
 function App() {
-  // const pathname = window.location.pathname;
+  const [searchValue, setSearchValue] = React.useState('');
+
   return (
     <div className="wrapper">
-      <Header />
+      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
       <div className="content">
         {/* {pathname === '/' && <Home />} */}
         <Routes>
