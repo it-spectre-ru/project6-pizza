@@ -1,10 +1,6 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 
-// импортирую два хука useSelector - отвечает за вытаскивание данных,
-// useDispatch - хук говорит сделай что-то, потому что нельзя просто вызвать increment() --> нужно dispatch(increment())
-import { useSelector, useDispatch } from 'react-redux';
-import { decrement, increment, test } from './redux/slices/filterSlice';
+import { Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -18,24 +14,8 @@ export const SearchContext = React.createContext();
 function App() {
   const [searchValue, setSearchValue] = React.useState('');
 
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch(); // возвращает функцию, которая ждет объект
-
   return (
     <div className="wrapper">
-      <button aria-label="Increment value" onClick={() => dispatch(increment())}>
-        Increment
-      </button>
-      <span>{count}</span>
-      <button aria-label="Decrement value" onClick={() => dispatch(decrement())}>
-        Decrement
-      </button>
-      <span>{count}</span>
-      <button aria-label="Decrement value" onClick={() => dispatch(test())}>
-        Decrement
-      </button>
-      <span>{count}</span>
-
       <SearchContext.Provider value={{ searchValue, setSearchValue }}>
         <Header />
         <div className="content">

@@ -1,36 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// задал начальное состояние, когда создается useState
 const initialState = {
-  value: 0, // любые свойства
+  categoryId: 0,
+  sort: {
+    name: 'популярности',
+    sortProperty: 'rating',
+  },
 };
 
-// логика для обработки state counterSlice
-// создаю слайс с помощью функции из reduxjs/toolkit
-export const counterSlice = createSlice({
-  name: 'counter', // объект со свойством - название слайса
-  initialState, // первое состояние
+const filterSlice = createSlice({
+  name: 'filters',
+  initialState,
   reducers: {
-    // какие методы , будут менять наше состояние
-    increment: (state) => {
-      state.value += 1;
+    setCategoryId(state, action) {
+      state.categoryId = action.payload;
     },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
-    },
-    test: (state) => {
-      state.value += 555;
+    setSort(state, action) {
+      state.sort = action.payload;
     },
   },
 });
 
-console.log(counterSlice.actions);
+export const { setCategoryId, setSort } = filterSlice.actions;
 
-// вытаскиваю из объекта все функции с помощью деструктуризации и делаю экпортироваными
-export const { increment, decrement, incrementByAmount, test } = counterSlice.actions;
-
-//экспортирую функцию
-export default counterSlice.reducer;
+export default filterSlice.reducer;

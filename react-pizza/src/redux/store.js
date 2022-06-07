@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './slices/filterSlice'; // импортирую
+import filter from './slices/filterSlice';
 
-// создал хранилище
 export const store = configureStore({
-  // у тебя будет редюсер который будет называтьтся counterReducer
   reducer: {
-    counter: counterReducer,
+    filter,
   },
 });
