@@ -56,6 +56,7 @@ const Home = () => {
       });
   };
 
+  // если изменили параметры и был первый рендер
   React.useEffect(() => {
     if (isMounted.current) {
       const queryString = qs.stringify({
@@ -85,6 +86,7 @@ const Home = () => {
     }
   }, []);
 
+  // если был первый рендер, то запрашиваю пиццы
   React.useEffect(() => {
     window.scrollTo(0, 0);
 
