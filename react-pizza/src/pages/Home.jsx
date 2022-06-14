@@ -36,7 +36,7 @@ const Home = () => {
     dispatch(setCurrentPage(page));
   };
 
-  const fetchPizzas = () => {
+  const fetchPizzas = async () => {
     setIsLoading(true);
 
     const sortBy = sort.sortProperty.replace('-', '');
@@ -46,14 +46,31 @@ const Home = () => {
 
     console.log(categoryId);
 
-    axios
-      .get(
+    // await axios
+    //   .get(
+    //     `https://6296191f810c00c1cb6f1d88.mockapi.io/pzitems?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
+    //   )
+    //   .then((res) => {
+    //     setItems(res.data);
+    //     setIsLoading(false);
+    //   })
+    //   .catch((err) => {
+    //     // console.log(err, 'Axxx');
+    //     setIsLoading(false);
+    //   });
+
+    try {
+      const res = await axios.get(
         `https://6296191f810c00c1cb6f1d88.mockapi.io/pzitems?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
-      )
-      .then((res) => {
-        setItems(res.data);
-        setIsLoading(false);
-      });
+      );
+      setItems(res.data);
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      console.log('ERRR', error);
+    }
+
+    window.scrollTo(0, 0);
   };
 
   // если изменили параметры и был первый рендер
