@@ -93,6 +93,7 @@ const Home = () => {
     isMounted.current = true;
   }, []);
 
+  // //////
   const pizzas = items.map((obj) => (
     <Link key={obj.id} to={`/pizza/${obj.id}`}>
       <PizzaBlock {...obj} />
