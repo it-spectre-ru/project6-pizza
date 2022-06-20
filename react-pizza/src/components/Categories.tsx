@@ -3,13 +3,23 @@ import React from 'react';
 
 type CategoriesProps = {
   value: number;
-  onChangeCategory: any;
+  onChangeCategory: (i: number) => void;
+  // getCategories?: (categories: string[]) => void // ? если хочу сделать опциональной 
 }
+
+const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 
 
 const Categories: React.FC<CategoriesProps> = ({ value, onChangeCategory }) => {
-  const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 
+  // if (getCategories) {
+  //   getCategories(categories);
+  // }
+
+  // getCategories?.(categories); // если функции не будет, не вызовется (categories)
+
+
+  
   return (
     <div className="categories">
       <ul>
