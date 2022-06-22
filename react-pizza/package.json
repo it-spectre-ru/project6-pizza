@@ -10,6 +10,7 @@
     "@types/jest": "^28.1.1",
     "@types/lodash.debounce": "^4.0.7",
     "@types/node": "^18.0.0",
+    "ahooks": "^3.5.0",
     "axios": "^0.27.2",
     "clsx": "^1.1.1",
     "lodash.debounce": "^4.0.8",

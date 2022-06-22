@@ -1,25 +1,17 @@
 import React from 'react';
 
+// import useWhyDidYouUpdate from 'ahooks/lib/useWhyDidYouUpdate';
+// useWhyDidYouUpdate('Categories', { value, onChangeCategory });
 
 type CategoriesProps = {
   value: number;
   onChangeCategory: (i: number) => void;
-  // getCategories?: (categories: string[]) => void // ? если хочу сделать опциональной 
-}
+  // getCategories?: (categories: string[]) => void // ? если хочу сделать опциональной
+};
 
 const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 
-
-const Categories: React.FC<CategoriesProps> = ({ value, onChangeCategory }) => {
-
-  // if (getCategories) {
-  //   getCategories(categories);
-  // }
-
-  // getCategories?.(categories); // если функции не будет, не вызовется (categories)
-
-
-  
+const Categories: React.FC<CategoriesProps> = React.memo(({ value, onChangeCategory }) => {
   return (
     <div className="categories">
       <ul>
@@ -31,6 +23,6 @@ const Categories: React.FC<CategoriesProps> = ({ value, onChangeCategory }) => {
       </ul>
     </div>
   );
-}
+});
 
 export default Categories;
