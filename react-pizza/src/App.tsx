@@ -14,7 +14,11 @@ const Cart = Loadable({
   loading: () => <div>Идет загрузка корзины ....</div>,
 });
 
-const FullPizza = React.lazy(() => import(/* webpackChunkName: "FullPizza" */ './pages/FullPizza'));
+const FullPizza = React.lazy(() =>
+  import(/* webpackChunkName: "FullPizza" */ './pages/FullPizza').then((m) => ({
+    default: m.FullPizza,
+  })),
+);
 const NotFound = React.lazy(() => import(/* webpackChunkName: "NotFound" */ './pages/NotFound'));
 
 function App() {
