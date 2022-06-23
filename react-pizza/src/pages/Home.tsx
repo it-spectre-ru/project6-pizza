@@ -26,10 +26,6 @@ const Home: React.FC = () => {
   const dispatch = useAppDispatch();
   const isMounted = React.useRef(false);
 
-  import('../utils/math').then((math) => {
-    console.log(math.add(777, 888));
-  });
-
   const { items, status } = useSelector(selectPizzaData);
   const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
 
