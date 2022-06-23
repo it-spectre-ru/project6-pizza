@@ -1,12 +1,8 @@
 import React from 'react';
 
-// import useWhyDidYouUpdate from 'ahooks/lib/useWhyDidYouUpdate';
-// useWhyDidYouUpdate('Categories', { value, onChangeCategory });
-
 type CategoriesProps = {
   value: number;
-  onChangeCategory: (i: number) => void;
-  // getCategories?: (categories: string[]) => void // ? если хочу сделать опциональной
+  onChangeCategory: (idx: number) => void;
 };
 
 const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];

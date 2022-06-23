@@ -10,7 +10,7 @@ export type Pizza = {
 
 export enum Status {
   LOADING = 'loading',
-  SUCCESS = 'success',
+  SUCCESS = 'completed',
   ERROR = 'error',
 }
 

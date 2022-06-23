@@ -1,17 +1,15 @@
+import Loadable from 'react-loadable';
 import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Loadable from 'react-loadable';
 
 import Home from './pages/Home';
 
 import './scss/app.scss';
 import MainLayout from './layouts/MainLayout';
 
-// const Cart = React.lazy(() => import(/* webpackChunkName: "Cart" */ './pages/Cart'));
-
 const Cart = Loadable({
   loader: () => import(/* webpackChunkName: "Cart" */ './pages/Cart'),
-  loading: () => <div>Идет загрузка корзины ....</div>,
+  loading: () => <div>Идёт загрузка корзины...</div>,
 });
 
 const FullPizza = React.lazy(() => import(/* webpackChunkName: "FullPizza" */ './pages/FullPizza'));
@@ -25,7 +23,7 @@ function App() {
         <Route
           path="cart"
           element={
-            <Suspense fallback={<div>Идет загрузка корзины ....</div>}>
+            <Suspense fallback={<div>Идёт загрузка корзины...</div>}>
               <Cart />
             </Suspense>
           }
@@ -33,7 +31,7 @@ function App() {
         <Route
           path="pizza/:id"
           element={
-            <Suspense fallback={<div>Идет загрузка ....</div>}>
+            <Suspense fallback={<div>Идёт загрузка...</div>}>
               <FullPizza />
             </Suspense>
           }
@@ -41,7 +39,7 @@ function App() {
         <Route
           path="*"
           element={
-            <Suspense fallback={<div>Идет загрузка ....</div>}>
+            <Suspense fallback={<div>Идёт загрузка...</div>}>
               <NotFound />
             </Suspense>
           }
