@@ -13,16 +13,22 @@ import { sortList } from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
 import Pagination from '../components/Pagination';
+
 import { useAppDispatch } from '../redux/store';
 import { selectFilter } from '../redux/filter/selectors';
 import { selectPizzaData } from '../redux/pizza/selectors';
 import { setCategoryId, setCurrentPage } from '../redux/filter/slice';
 import { fetchPizzas } from '../redux/pizza/asyncActions';
+import { match } from 'assert';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const isMounted = React.useRef(false);
+
+  import('../utils/math').then((math) => {
+    console.log(math.add(777, 888));
+  });
 
   const { items, status } = useSelector(selectPizzaData);
   const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
